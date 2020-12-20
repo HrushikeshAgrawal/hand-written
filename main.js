@@ -1,9 +1,6 @@
 const inputText = document.getElementById("inputText");
 const imgOutput = document.getElementById("imgOutput");
 
-const PARA_HEIGHT = 28;
-const PAGE_LINES = 30;
-
 window.onload = () => {
   inputText.addEventListener("input", inputHandler);
   inputText.addEventListener("propertychange", inputHandler);
@@ -26,6 +23,13 @@ inputHandler = (e) => {
       } else {
         template += `<img class="letter small" src="./imgs/small/${val}.png" alt="" />`;
       }
+    } else if (nums.includes(val)) {
+      template += `<img class="letter num" src="./imgs/nums/${val}.png" alt="" />`;
+    } else if (val === ",") {
+      template += `<img class="letter comma" src="./imgs/symbols/comma2.png" alt="" />`;
+    } else if (symbols.includes(val)) {
+      let symbolObj = symbolsToFileName.find((symbol) => symbol.symbol === val);
+      template += `<img class="letter symbol" src="./imgs/symbols/${symbolObj.fileName}.png" alt="" />`;
     } else {
       switch (val) {
         case " ":
@@ -56,68 +60,6 @@ inputHandler = (e) => {
   paras = document.querySelectorAll(".para");
   paras[paras.length - 1].style.paddingBottom = "2px";
 };
-
-const capsLetters = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
-
-const smallLetters = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-];
-
-const smallTallLetters = ["b", "d", "f", "h", "k", "l", "t"];
-
-const smallDownLetters = ["g", "j", "p", "q", "y"];
 
 const downloadPage = () => {
   document.getElementById("imgOutput").style.border = "none";
@@ -246,10 +188,118 @@ const setInitialOutput = () => {
       />
     </div>
   </div>
-  <div class="para"></div>
-  <div class="para"></div>
-  <div class="para"></div>
-  <div class="para"></div>
+  <div class="para"><div class="word"></div></div>
+  <div class="para">
+    <div class="word">
+      <img class="letter num" src="./imgs/nums/1.png" alt="" /><img
+        class="letter num"
+        src="./imgs/nums/2.png"
+        alt=""
+      /><img class="letter num" src="./imgs/nums/3.png" alt="" /><img
+        class="letter num"
+        src="./imgs/nums/4.png"
+        alt=""
+      /><img class="letter num" src="./imgs/nums/5.png" alt="" /><img
+        class="letter num"
+        src="./imgs/nums/6.png"
+        alt=""
+      /><img class="letter num" src="./imgs/nums/7.png" alt="" /><img
+        class="letter num"
+        src="./imgs/nums/8.png"
+        alt=""
+      /><img class="letter num" src="./imgs/nums/9.png" alt="" /><img
+        class="letter num"
+        src="./imgs/nums/0.png"
+        alt=""
+      />
+    </div>
+  </div>
+  <div class="para"><div class="word"></div></div>
+  <div class="para">
+    <div class="word">
+      <img class="letter symbol" src="./imgs/symbols/and.png" alt="" /><img
+        class="letter symbol"
+        src="./imgs/symbols/arrow_bracket_close.png"
+        alt=""
+      /><img
+        class="letter symbol"
+        src="./imgs/symbols/arrow_bracket_open.png"
+        alt=""
+      /><img
+        class="letter symbol"
+        src="./imgs/symbols/arrow_up.png"
+        alt=""
+      /><img class="letter symbol" src="./imgs/symbols/at.png" alt="" /><img
+        class="letter symbol"
+        src="./imgs/symbols/circle_bracket_close.png"
+        alt=""
+      /><img
+        class="letter symbol"
+        src="./imgs/symbols/circle_bracket_open.png"
+        alt=""
+      /><img
+        class="letter symbol"
+        src="./imgs/symbols/colon.png"
+        alt=""
+      /><img
+        class="letter comma"
+        src="./imgs/symbols/comma2.png"
+        alt=""
+      /><img
+        class="letter symbol"
+        src="./imgs/symbols/curly_bracket_close.png"
+        alt=""
+      /><img
+        class="letter symbol"
+        src="./imgs/symbols/curly_bracket_open.png"
+        alt=""
+      /><img class="letter symbol" src="./imgs/symbols/dot.png" alt="" /><img
+        class="letter symbol"
+        src="./imgs/symbols/equals.png"
+        alt=""
+      /><img
+        class="letter symbol"
+        src="./imgs/symbols/exclamation.png"
+        alt=""
+      /><img class="letter symbol" src="./imgs/symbols/hash.png" alt="" /><img
+        class="letter symbol"
+        src="./imgs/symbols/minus.png"
+        alt=""
+      /><img
+        class="letter symbol"
+        src="./imgs/symbols/percentage.png"
+        alt=""
+      /><img class="letter symbol" src="./imgs/symbols/plus.png" alt="" /><img
+        class="letter symbol"
+        src="./imgs/symbols/question.png"
+        alt=""
+      /><img
+        class="letter symbol"
+        src="./imgs/symbols/semi_colon.png"
+        alt=""
+      /><img
+        class="letter symbol"
+        src="./imgs/symbols/slash_backward.png"
+        alt=""
+      /><img
+        class="letter symbol"
+        src="./imgs/symbols/slash_forward.png"
+        alt=""
+      /><img class="letter symbol" src="./imgs/symbols/star.png" alt="" /><img
+        class="letter symbol"
+        src="./imgs/symbols/tild.png"
+        alt=""
+      /><img
+        class="letter symbol"
+        src="./imgs/symbols/single_quote.png"
+        alt=""
+      /><img
+        class="letter symbol"
+        src="./imgs/symbols/double_quotes.png"
+        alt=""
+      /><img class="letter symbol" src="./imgs/symbols/dollar.png" alt="" />
+    </div>
+  </div>
   <div class="para"></div>
   <div class="para"></div>
   <div class="para"></div>
