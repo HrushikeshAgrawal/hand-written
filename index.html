@@ -14,11 +14,13 @@
     <div class="container">
       <div class="input">
         <textarea placeholder="Enter text..." id="inputText"></textarea>
+        <div class="options">
+          <button onclick="downloadPage()">Download</button>
+          <button onclick="newShadow()">Add Random Shadow</button>
+          <button onclick="removeShadow()">Remove Shadow</button>
+        </div>
       </div>
       <div class="output" id="imgOutput"></div>
-    </div>
-    <div class="options">
-      <button onclick="downloadPage()">Download</button>
     </div>
   </body>
 </html>
