@@ -15,9 +15,31 @@
       <div class="input">
         <textarea placeholder="Enter text..." id="inputText"></textarea>
         <div class="options">
-          <button onclick="downloadPage()">Download</button>
-          <button onclick="newShadow()">Add Random Shadow</button>
-          <button onclick="removeShadow()">Remove Shadow</button>
+          <div><button onclick="downloadPage()">Download</button></div>
+          <div>
+            <div class="row">
+              <input
+                type="radio"
+                id="ink1"
+                name="age"
+                value="Blue"
+                onchange="changeInk('blue')"
+              />
+              <label for="ink1">Blue Ink</label>
+            </div>
+            <div class="row">
+              <input
+                type="radio"
+                id="ink2"
+                name="age"
+                value="Black"
+                onchange="changeInk('black')"
+              />
+              <label for="ink2">Black Ink</label>
+            </div>
+          </div>
+          <div><button onclick="newShadow()">Add Random Shadow</button></div>
+          <div><button onclick="removeShadow()">Remove Shadow</button></div>
         </div>
       </div>
       <div class="output" id="imgOutput"></div>

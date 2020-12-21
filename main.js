@@ -63,10 +63,25 @@ inputHandler = (e) => {
 
 const downloadPage = () => {
   imgOutput.style.border = "none";
+  imgOutput.style.margin = "0";
   domtoimage.toBlob(imgOutput).then(function (blob) {
     window.saveAs(blob, "page.png");
     imgOutput.style.border = "1px solid #000";
+    imgOutput.style.margin = "20px";
   });
+};
+
+const changeInk = (ink) => {
+  const letters = document.querySelectorAll(".letter");
+  if (ink === "black") {
+    letters.forEach((letter) => {
+      letter.classList.add("blackInk");
+    });
+  } else if (ink === "blue") {
+    letters.forEach((letter) => {
+      letter.classList.remove("blackInk");
+    });
+  }
 };
 
 const newShadow = () => {
@@ -75,10 +90,12 @@ const newShadow = () => {
   let lighterShadow = randomInteger(190, 230);
   let percent = randomInteger(20, 40);
   imgOutput.style.background = `linear-gradient(${angle}deg, rgba(${darkerShadow}, ${darkerShadow}, ${darkerShadow}, 1) 0%, rgba(${lighterShadow}, ${lighterShadow}, ${lighterShadow}, 0.5) ${percent}%)`;
+  document.querySelector(".redLine").style.backgroundColor = "#bb1919";
 };
 
 const removeShadow = () => {
   imgOutput.style.background = "none";
+  document.querySelector(".redLine").style.backgroundColor = "#ff0000";
 };
 
 const randomInteger = (min, max) => {
