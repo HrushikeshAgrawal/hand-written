@@ -15,35 +15,74 @@
       <div class="input">
         <textarea placeholder="Enter text..." id="inputText"></textarea>
         <div class="options">
-          <div><button onclick="downloadPage()">Download</button></div>
-          <div>
-            <div class="row">
-              <input
-                type="radio"
-                id="ink1"
-                name="ink"
-                onchange="changeInk('blue')"
-              />
-              <label for="ink1">Blue Ink</label>
+          <div class="optionsSection">
+            <div><button onclick="downloadPage()">Download</button></div>
+            <div>
+              <div class="row">
+                <input
+                  type="radio"
+                  id="ink1"
+                  name="ink"
+                  onchange="changeInk('blue')"
+                />
+                <label for="ink1">Blue Ink</label>
+              </div>
+              <div class="row">
+                <input
+                  type="radio"
+                  id="ink2"
+                  name="ink"
+                  onchange="changeInk('black')"
+                />
+                <label for="ink2">Black Ink</label>
+              </div>
             </div>
-            <div class="row">
-              <input
-                type="radio"
-                id="ink2"
-                name="ink"
-                onchange="changeInk('black')"
-              />
-              <label for="ink2">Black Ink</label>
-            </div>
+            <div><button onclick="newShadow()">Add Random Shadow</button></div>
+            <div><button onclick="removeShadow()">Remove Shadow</button></div>
           </div>
-          <div><button onclick="newShadow()">Add Random Shadow</button></div>
-          <div><button onclick="removeShadow()">Remove Shadow</button></div>
-          <div>
-            <input
-              type="text"
-              id="headingInput"
-              placeholder="Enter Heading..."
-            />
+          <div class="optionsSection">
+            <div>
+              <input
+                type="text"
+                id="headingInput"
+                placeholder="Enter Page Heading..."
+              />
+            </div>
+            <div>
+              <div class="row">
+                <input
+                  type="number"
+                  id="letterSpacing"
+                  value="2"
+                  oninput="changeLetterSpacing()"
+                />
+                <label for="letterSpacing">Letter Spacing</label>
+              </div>
+            </div>
+            <div>
+              <div class="row">
+                <input
+                  type="number"
+                  id="wordSpacing"
+                  value="10"
+                  oninput="changeWordSpacing()"
+                />
+                <label for="wordSpacing">Word Spacing</label>
+              </div>
+            </div>
+            <div>
+              <div class="row">
+                <input
+                  type="number"
+                  id="fontSize"
+                  value="24"
+                  min="6"
+                  max="28"
+                  oninput="changeFontSize()"
+                />
+                <label for="fontSize">Font Size</label>
+              </div>
+            </div>
           </div>
         </div>
       </div>

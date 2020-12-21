@@ -1,3 +1,9 @@
+:root {
+  --letter-spacing: 2px;
+  --word-spacing: 10px;
+  --font-size: 24px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -25,10 +31,15 @@
 }
 
 .options {
-  width: max-content;
+  display: flex;
 }
 
-.options > div {
+.optionsSection {
+  width: 30%;
+  margin-right: 10%;
+}
+
+.optionsSection > div {
   margin: 10px 0;
   width: 100%;
   display: flex;
@@ -43,6 +54,11 @@
 .row > label,
 .row > input {
   cursor: pointer;
+}
+
+.row input[type="number"] {
+  width: 50px;
+  padding: 5px;
 }
 
 .options button {
@@ -97,7 +113,7 @@
 }
 
 .word {
-  margin: 0 10px;
+  margin: 0 var(--word-spacing);
   height: 28px;
   display: flex;
   flex-wrap: wrap;
@@ -105,32 +121,42 @@
 }
 
 .letter {
-  margin: 4px 2px 0 2px;
+  margin: 4px var(--letter-spacing) 0 var(--letter-spacing);
 }
 
+/*
+Caps   24  x
+small  14  x/2 + 2
+tall   24  x
+down   24  x
+downM  12  x/2
+num    22  x - 2
+symbol 24  x
+*/
+
 .caps {
-  height: 24px;
+  height: var(--font-size);
 }
 
 .small {
-  height: 14px;
+  height: calc(var(--font-size) / 2 + 2px);
 }
 
 .tall {
-  height: 24px;
+  height: var(--font-size);
 }
 
 .down {
-  height: 24px;
-  margin-bottom: -12px;
+  height: var(--font-size);
+  margin-bottom: calc(-1 * (var(--font-size) / 2));
 }
 
 .num {
-  height: 22px;
+  height: calc(var(--font-size) - 2px);
 }
 
 .symbol {
-  height: 24px;
+  height: var(--font-size);
 }
 
 .comma {

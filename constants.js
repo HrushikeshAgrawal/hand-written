@@ -127,8 +127,7 @@ const symbolsToFileName = [
 
 const initialOutput = `
 <div class="redLine"></div>
-    <div class="pagetop">
-    </div>
+    <div class="pagetop"><div class="word"></div></div>
     <div class="para">
       <div class="word">
         <img class="letter small" src="./imgs/small/a.png" alt="" /><img
@@ -273,7 +272,7 @@ const initialOutput = `
     <div class="para"><div class="word"></div></div>
     <div class="para">
       <div class="word">
-        <img class="letter symbol" src="./imgs/symbols/and.png" alt="" /><img
+        <img
           class="letter symbol"
           src="./imgs/symbols/arrow_bracket_close.png"
           alt=""
@@ -353,14 +352,67 @@ const initialOutput = `
           class="letter symbol"
           src="./imgs/symbols/double_quotes.png"
           alt=""
-        /><img class="letter symbol" src="./imgs/symbols/dollar.png" alt="" />
+        /><img class="letter symbol" src="./imgs/symbols/and.png" alt="" /><img
+          class="letter symbol"
+          src="./imgs/symbols/dollar.png"
+          alt=""
+        />
       </div>
     </div>
-    <div class="para"></div>
-    <div class="para"></div>
-    <div class="para"></div>
-    <div class="para"></div>
-    <div class="para"></div>
+    <div class="para"><div class="word"></div></div>
+    <div class="para"><div class="word"></div></div>
+    <div class="para"><div class="word"></div></div>
+    <div class="para"><div class="word"></div></div>
+    <div class="para">
+      <div class="word">
+        <img class="letter caps" src="./imgs/caps/T.png" alt="" /><img
+          class="letter small"
+          src="./imgs/small/e.png"
+          alt=""
+        /><img class="letter small" src="./imgs/small/x.png" alt="" /><img
+          class="letter small tall"
+          src="./imgs/small/t.png"
+          alt=""
+        />
+      </div>
+      <div class="word">
+        <img class="letter small tall" src="./imgs/small/t.png" alt="" /><img
+          class="letter small"
+          src="./imgs/small/o.png"
+          alt=""
+        />
+      </div>
+      <div class="word">
+        <img class="letter caps" src="./imgs/caps/H.png" alt="" /><img
+          class="letter small"
+          src="./imgs/small/a.png"
+          alt=""
+        /><img class="letter small" src="./imgs/small/n.png" alt="" /><img
+          class="letter small tall"
+          src="./imgs/small/d.png"
+          alt=""
+        /><img class="letter small" src="./imgs/small/w.png" alt="" /><img
+          class="letter small"
+          src="./imgs/small/r.png"
+          alt=""
+        /><img class="letter small" src="./imgs/small/i.png" alt="" /><img
+          class="letter small tall"
+          src="./imgs/small/t.png"
+          alt=""
+        /><img class="letter small tall" src="./imgs/small/t.png" alt="" /><img
+          class="letter small"
+          src="./imgs/small/e.png"
+          alt=""
+        /><img class="letter small" src="./imgs/small/n.png" alt="" />
+      </div>
+      <div class="word">
+        <img class="letter symbol" src="./imgs/symbols/colon.png" alt="" /><img
+          class="letter symbol"
+          src="./imgs/symbols/circle_bracket_close.png"
+          alt=""
+        />
+      </div>
+    </div>
     <div class="para"></div>
     <div class="para"></div>
     <div class="para"></div>

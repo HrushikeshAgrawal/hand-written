@@ -136,3 +136,27 @@ const removeShadow = () => {
 const randomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+const changeLetterSpacing = () => {
+  const newLetterSpacing = document.getElementById("letterSpacing").value;
+  document.documentElement.style.setProperty(
+    "--letter-spacing",
+    `${newLetterSpacing}px`
+  );
+};
+
+const changeWordSpacing = () => {
+  const newWordSpacing = document.getElementById("wordSpacing").value;
+  document.documentElement.style.setProperty(
+    "--word-spacing",
+    `${newWordSpacing}px`
+  );
+};
+
+const changeFontSize = () => {
+  let newFontSize = document.getElementById("fontSize").value;
+  if (newFontSize == 0) newFontSize = 24;
+  if (newFontSize > 28) newFontSize = 28;
+  if (newFontSize < 6) newFontSize = 6;
+  document.documentElement.style.setProperty("--font-size", `${newFontSize}px`);
+};
