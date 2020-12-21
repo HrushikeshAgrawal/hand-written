@@ -61,6 +61,14 @@
   transform: scale(1.1);
 }
 
+#headingInput {
+  padding: 8px;
+  width: 100%;
+  font-size: 16px;
+  border: solid 1px #000;
+  outline: solid 1px #000;
+}
+
 .output {
   align-content: flex-start;
   border: 1px solid #000;
@@ -73,6 +81,9 @@
   padding-left: 80px;
   border-bottom: 1px solid #ff0000;
   position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .para {
@@ -84,11 +95,6 @@
   background-image: linear-gradient(rgb(0, 0, 0) 1px, transparent 0);
   background-size: 100% 28px;
 }
-
-/* .para::before {
-  content: "";
-  border-right: 2px solid #ff0000;
-} */
 
 .word {
   margin: 0 10px;

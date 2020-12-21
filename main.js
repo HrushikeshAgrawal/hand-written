@@ -1,35 +1,50 @@
 const inputText = document.getElementById("inputText");
 const imgOutput = document.getElementById("imgOutput");
+const headingInput = document.getElementById("headingInput");
+let pageHeading = "";
 
 window.onload = () => {
   inputText.addEventListener("input", inputHandler);
   inputText.addEventListener("propertychange", inputHandler);
+  headingInput.addEventListener("input", headingHandler);
+  headingInput.addEventListener("propertychange", headingHandler);
   imgOutput.innerHTML = initialOutput;
+};
+
+const getLetterString = (val) => {
+  let letterTemplate = "";
+  if (capsLetters.includes(val)) {
+    letterTemplate = `<img class="letter caps" src="./imgs/caps/${val}.png" alt="" />`;
+  } else if (smallLetters.includes(val)) {
+    if (smallTallLetters.includes(val)) {
+      letterTemplate = `<img class="letter small tall" src="./imgs/small/${val}.png" alt="" />`;
+    } else if (smallDownLetters.includes(val)) {
+      letterTemplate = `<img class="letter small down" src="./imgs/small/${val}.png" alt="" />`;
+    } else {
+      letterTemplate = `<img class="letter small" src="./imgs/small/${val}.png" alt="" />`;
+    }
+  } else if (nums.includes(val)) {
+    letterTemplate = `<img class="letter num" src="./imgs/nums/${val}.png" alt="" />`;
+  } else if (val === ",") {
+    letterTemplate = `<img class="letter comma" src="./imgs/symbols/comma2.png" alt="" />`;
+  } else if (symbols.includes(val)) {
+    let symbolObj = symbolsToFileName.find((symbol) => symbol.symbol === val);
+    letterTemplate = `<img class="letter symbol" src="./imgs/symbols/${symbolObj.fileName}.png" alt="" />`;
+  }
+  if (letterTemplate === "") return false;
+  else return letterTemplate;
 };
 
 inputHandler = (e) => {
   const newValue = e.target.value;
   newArr = newValue.split("");
-  let template = `<div class="redLine"></div> <div class="pagetop"></div>`;
+  const pageTopHtml = document.querySelector(".pagetop").innerHTML;
+  let template = `<div class="redLine"></div> <div class="pagetop">${pageTopHtml}</div>`;
   template += `<div class="para"><div class="word">`;
   newArr.forEach((val) => {
-    if (capsLetters.includes(val)) {
-      template += `<img class="letter caps" src="./imgs/caps/${val}.png" alt="" />`;
-    } else if (smallLetters.includes(val)) {
-      if (smallTallLetters.includes(val)) {
-        template += `<img class="letter small tall" src="./imgs/small/${val}.png" alt="" />`;
-      } else if (smallDownLetters.includes(val)) {
-        template += `<img class="letter small down" src="./imgs/small/${val}.png" alt="" />`;
-      } else {
-        template += `<img class="letter small" src="./imgs/small/${val}.png" alt="" />`;
-      }
-    } else if (nums.includes(val)) {
-      template += `<img class="letter num" src="./imgs/nums/${val}.png" alt="" />`;
-    } else if (val === ",") {
-      template += `<img class="letter comma" src="./imgs/symbols/comma2.png" alt="" />`;
-    } else if (symbols.includes(val)) {
-      let symbolObj = symbolsToFileName.find((symbol) => symbol.symbol === val);
-      template += `<img class="letter symbol" src="./imgs/symbols/${symbolObj.fileName}.png" alt="" />`;
+    const isLetter = getLetterString(val);
+    if (isLetter) {
+      template += isLetter;
     } else {
       switch (val) {
         case " ":
@@ -59,6 +74,26 @@ inputHandler = (e) => {
   imgOutput.innerHTML += template;
   paras = document.querySelectorAll(".para");
   paras[paras.length - 1].style.paddingBottom = "2px";
+};
+
+headingHandler = (e) => {
+  const newValue = e.target.value;
+  let pageHeadArr = newValue.split("");
+  let template = `<div class="word">`;
+  pageHeadArr.forEach((val) => {
+    const isLetter = getLetterString(val);
+    if (isLetter) {
+      template += isLetter;
+    } else if (val === " ") {
+      template += `</div><div class="word">`;
+    }
+  });
+  template += `</div>`;
+  document.querySelector(".pagetop").innerHTML = template;
+};
+
+const getPageTopContent = () => {
+  return template;
 };
 
 const downloadPage = () => {

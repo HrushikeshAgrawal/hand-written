@@ -21,8 +21,7 @@
               <input
                 type="radio"
                 id="ink1"
-                name="age"
-                value="Blue"
+                name="ink"
                 onchange="changeInk('blue')"
               />
               <label for="ink1">Blue Ink</label>
@@ -31,8 +30,7 @@
               <input
                 type="radio"
                 id="ink2"
-                name="age"
-                value="Black"
+                name="ink"
                 onchange="changeInk('black')"
               />
               <label for="ink2">Black Ink</label>
@@ -40,9 +38,19 @@
           </div>
           <div><button onclick="newShadow()">Add Random Shadow</button></div>
           <div><button onclick="removeShadow()">Remove Shadow</button></div>
+          <div>
+            <input
+              type="text"
+              id="headingInput"
+              placeholder="Enter Heading..."
+            />
+          </div>
         </div>
       </div>
-      <div class="output" id="imgOutput"></div>
+      <div class="output" id="imgOutput">
+        <div class="redLine"></div>
+        <div class="pagetop"></div>
+      </div>
     </div>
   </body>
 </html>
