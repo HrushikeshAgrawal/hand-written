@@ -53,8 +53,8 @@ inputHandler = (e) => {
         case "\n":
           template += `</div></div><div class="para"><div class="word">`;
           break;
-        // default:
-        //   template += `<img class="letter" src="./imgs/Z.png" alt="" />`;
+        default:
+          template += `<img class="letter caps" src="./imgs/specials/red.png" alt="" />`;
       }
     }
   });
@@ -133,10 +133,6 @@ const removeShadow = () => {
   document.querySelector(".redLine").style.backgroundColor = "#ff0000";
 };
 
-const randomInteger = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
 const changeLetterSpacing = () => {
   const newLetterSpacing = document.getElementById("letterSpacing").value;
   document.documentElement.style.setProperty(
@@ -159,4 +155,47 @@ const changeFontSize = () => {
   if (newFontSize > 28) newFontSize = 28;
   if (newFontSize < 6) newFontSize = 6;
   document.documentElement.style.setProperty("--font-size", `${newFontSize}px`);
+};
+
+const addCuts = () => {
+  removeCuts();
+  const pageTop = document.querySelector(".pagetop");
+  const allWords = [...imgOutput.querySelectorAll(".word")];
+  const headingWords = [...pageTop.querySelectorAll(".word")];
+  const words = allWords.filter((el) => !headingWords.includes(el));
+  const cutsCount = Math.round(words.length / 10);
+  let positions = [...Array(words.length).keys()];
+  let randomPositions = positions
+    .sort(() => 0.5 - Math.random())
+    .slice(0, cutsCount);
+
+  for (let i = 0; i < cutsCount; i++) {
+    let cutImgNo = randomInteger(1, CUT_IMAGES_COUNT);
+    console.log(cutImgNo);
+    let newCutElement = document.createElement("img");
+    newCutElement.classList.add("letter");
+    newCutElement.classList.add("cut");
+    if (CUT_SMALL_IMAGES.includes(cutImgNo))
+      newCutElement.classList.add("smallCut");
+    newCutElement.src = `./imgs/specials/cut${cutImgNo}.png`;
+
+    let newCutWord = document.createElement("div");
+    newCutWord.classList.add("word");
+    newCutWord.classList.add("cutword");
+    newCutWord.appendChild(newCutElement);
+
+    let targetWord = words[randomPositions[i]];
+    targetWord.parentNode.insertBefore(newCutWord, targetWord.nextSibling);
+  }
+};
+
+const removeCuts = () => {
+  const cuts = document.querySelectorAll(".cutword");
+  cuts.forEach((cut) => {
+    cut.parentElement.removeChild(cut);
+  });
+};
+
+const randomInteger = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 };

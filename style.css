@@ -159,6 +159,14 @@ symbol 24  x
   height: var(--font-size);
 }
 
+.cut {
+  height: calc(var(--font-size) - 2px);
+}
+
+.smallCut {
+  height: calc(var(--font-size) / 2 + 2px);
+}
+
 .comma {
   height: 12px;
   margin-bottom: -8px;

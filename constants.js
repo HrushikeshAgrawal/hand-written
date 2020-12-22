@@ -1,5 +1,7 @@
 const PARA_HEIGHT = 28;
 const PAGE_LINES = 30;
+const CUT_IMAGES_COUNT = 4;
+const CUT_SMALL_IMAGES = [1];
 
 const capsLetters = [
   "A",
