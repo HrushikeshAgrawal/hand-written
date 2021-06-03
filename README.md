@@ -7,8 +7,11 @@ Basic features such as letter spacing, word spacing and font size are added alon
 
 
 ## Output Example Screenshot -
+
 ![Image not supported](example/UI.png)
-![Image not supported](example/page2.png)
+
+![Image not supported](example/page2.jfif)
+
 ![Image not supported](example/page.png)
 
 
